@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Ashwini 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel+Decorative:wght@400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #c0404a;
+    --blush: #f5d0d3;
+    --cream: #fdf8f2;
+    --gold: #c9a84c;
+    --deep: #1a0a0d;
+    --soft: #8b4a52;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--deep);
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    width: 18px; height: 18px;
+    background: var(--rose);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, opacity 0.2s;
+    mix-blend-mode: multiply;
+  }
+  .cursor-trail {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.25s ease, opacity 0.3s;
+    opacity: 0.6;
+  }
+
+  /* Floating petals */
+  .petal {
+    position: fixed;
+    pointer-events: none;
+    font-size: 1.2rem;
+    animation: fall linear infinite;
+    opacity: 0.7;
+    z-index: 0;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-40px) rotate(0deg); opacity: 0.7; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* === HERO === */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(ellipse at 60% 40%, #ffe8ea 0%, #fdf3ec 50%, #fdf8f2 100%);
+    overflow: hidden;
+  }
+
+  #hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(192,64,74,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 50%);
+  }
+
+  .hero-ornament {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(0.5rem, 1.2vw, 0.75rem);
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    animation: fadeUp 1s ease 0.3s both;
+    margin-bottom: 2rem;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(5rem, 15vw, 13rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--rose);
+    line-height: 0.9;
+    text-align: center;
+    animation: fadeUp 1.2s ease 0.5s both;
+    text-shadow: 0 4px 40px rgba(192,64,74,0.15);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
+    font-weight: 300;
+    color: var(--soft);
+    letter-spacing: 0.15em;
+    margin-top: 1.5rem;
+    animation: fadeUp 1s ease 0.8s both;
+  }
+
+  .hero-divider {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 2rem auto;
+    animation: fadeUp 1s ease 1s both;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--soft);
+    text-transform: uppercase;
+    animation: fadeUp 1s ease 1.5s both;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+
+  /* === SECTIONS === */
+  section {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* === REASONS === */
+  #reasons {
+    padding: 8rem 2rem;
+    background: var(--deep);
+    color: var(--cream);
+    overflow: hidden;
+  }
+
+  #reasons::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .section-label {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 300;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 5rem;
+  }
+
+  #reasons .section-title { color: var(--blush); }
+
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .reason-card {
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    background: rgba(255,255,255,0.03);
+  }
+
+  .reason-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reason-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--gold);
+    transition: width 0.4s ease;
+  }
+
+  .reason-card:hover::before { width: 100%; }
+  .reason-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(201,168,76,0.5); }
+
+  .reason-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: rgba(201,168,76,0.25);
+    line-height: 1;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .reason-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--blush);
+    line-height: 1.6;
+  }
+
+  /* === LETTER === */
+  #letter {
+    padding: 8rem 2rem;
+    background: var(--cream);
+    position: relative;
+  }
+
+  #letter::after {
+    content: '❤';
+    position: absolute;
+    font-size: 40vw;
+    color: rgba(192,64,74,0.03);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .letter-container {
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .letter-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--deep);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+  }
+
+  .letter-body.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .letter-body p { margin-bottom: 1.5rem; }
+
+  .letter-highlight {
+    color: var(--rose);
+    font-style: italic;
+  }
+
+  .letter-signature {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    color: var(--soft);
+    margin-top: 3rem;
+    text-align: right;
+  }
+
+  /* === PROPOSAL === */
+  #proposal {
+    padding: 8rem 2rem;
+    background: linear-gradient(160deg, #1a0a0d 0%, #2d1015 50%, #1a0a0d 100%);
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  #proposal::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(192,64,74,0.2) 0%, transparent 70%);
+  }
+
+  .proposal-eyebrow {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: none;
+  }
+
+  .proposal-eyebrow.animate {
+    animation: fadeUp 1s ease forwards;
+  }
+
+  .proposal-question {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 8vw, 7rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--blush);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    opacity: 0;
+  }
+
+  .proposal-question.animate {
+    animation: fadeUp 1.2s ease 0.2s forwards;
+  }
+
+  .proposal-name-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 10vw, 9rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--rose);
+    line-height: 1;
+    margin-bottom: 3rem;
+    text-shadow: 0 0 80px rgba(192,64,74,0.6);
+    opacity: 0;
+  }
+
+  .proposal-name-big.animate {
+    animation: fadeUp 1.2s ease 0.4s forwards;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+  }
+
+  .buttons.animate {
+    animation: fadeUp 1s ease 0.8s forwards;
+  }
+
+  .btn-yes {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    padding: 1.2rem 3rem;
+    background: var(--rose);
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .btn-yes::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .btn-yes:hover::before { transform: translateX(0); }
+  .btn-yes span { position: relative; z-index: 1; }
+  .btn-yes:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(192,64,74,0.5); }
+
+  .btn-maybe {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    padding: 1.2rem 2rem;
+    background: transparent;
+    color: rgba(245,208,211,0.5);
+    border: 1px solid rgba(245,208,211,0.2);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+
+  .btn-maybe:hover {
+    border-color: rgba(245,208,211,0.5);
+    color: var(--blush);
+  }
+
+  /* Response overlay */
+  #yes-response {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--deep);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  #yes-response.show { display: flex; }
+
+  .yes-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--blush);
+    text-align: center;
+    animation: heartbeat 1s ease forwards;
+  }
+
+  .yes-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 300;
+    color: var(--gold);
+    text-align: center;
+    letter-spacing: 0.1em;
+    animation: fadeUp 1s ease 0.5s both;
+  }
+
+  .hearts-burst {
+    font-size: 3rem;
+    animation: fadeUp 1s ease 0.2s both;
+  }
+
+  @keyframes heartbeat {
+    0% { transform: scale(0.5); opacity: 0; }
+    60% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .reasons-grid { grid-template-columns: 1fr; }
+    .buttons { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursor-trail"></div>
+
+<!-- Floating petals -->
+<div id="petals"></div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-ornament">A heartfelt message</div>
+  <h1 class="hero-name">Ashwini</h1>
+  <p class="hero-subtitle">There is something I have been wanting to say...</p>
+  <div class="hero-divider"></div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- REASONS -->
+<section id="reasons">
+  <p class="section-label">The reasons</p>
+  <h2 class="section-title">Why you mean<br>so much to me</h2>
+  <div class="reasons-grid">
+    <div class="reason-card">
+      <div class="reason-number">01</div>
+      <p class="reason-text">Your smile lights up any room you walk into — it is the first thing I notice and the last thing I can stop thinking about.</p>
+    </div>
+    <div class="reason-card">
+      <div class="reason-number">02</div>
+      <p class="reason-text">The way you carry yourself — with such quiet grace and warmth — is something truly rare and beautiful.</p>
+    </div>
+    <div class="reason-card">
+      <div class="reason-number">03</div>
+      <p class="reason-text">Every conversation with you feels like a gift. You listen, you understand, and you make everything feel a little brighter.</p>
+    </div>
+    <div class="reason-card">
+      <div class="reason-number">04</div>
+      <p class="reason-text">Your kindness is effortless and genuine — it makes me want to be a better person every single day.</p>
+    </div>
+    <div class="reason-card">
+      <div class="reason-number">05</div>
+      <p class="reason-text">You have a certain magic about you, Ashwini, that I cannot quite explain — I only know that being around you feels like home.</p>
+    </div>
+    <div class="reason-card">
+      <div class="reason-number">06</div>
+      <p class="reason-text">My world is simply more colourful, more alive, and more joyful because you are in it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LETTER -->
+<section id="letter">
+  <div class="letter-container">
+    <p class="section-label">From the heart</p>
+    <h2 class="section-title" style="color: var(--rose); margin-bottom: 3rem;">A letter<br>for you</h2>
+    <div class="letter-body" id="letter-body">
+      <p>Dear <span class="letter-highlight">Ashwini</span>,</p>
+      <p>I have written this letter a hundred times in my head, searching for the perfect words — but I have come to realise that no words will ever be entirely perfect, because what I feel for you goes beyond what language can fully hold.</p>
+      <p>From the very first moment I truly saw you, something shifted inside me. It was quiet, like turning a page, but everything that came after was different. <span class="letter-highlight">You made the ordinary feel extraordinary.</span></p>
+      <p>I admire the way you move through the world — with such sincerity, such warmth. I find myself hoping that you have a good day, every day. I find myself wanting to be someone worthy of your time and your trust.</p>
+      <p>I am not certain what tomorrow holds, but I am certain of this: <span class="letter-highlight">I would very much like to get to know you more.</span> To share conversations that stretch long into the evening. To be someone you can count on.</p>
+      <p>This is not a grand declaration — it is simply an honest one. And I hope, more than anything, that it makes you smile.</p>
+      <div class="letter-signature">With all my heart 💕</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPOSAL -->
+<section id="proposal">
+  <p class="proposal-eyebrow" id="pe">The question</p>
+  <h2 class="proposal-question" id="pq">Will you be mine,</h2>
+  <h2 class="proposal-name-big" id="pn">Ashwini?</h2>
+  <div class="buttons" id="pb">
+    <button class="btn-yes" onclick="sayYes()"><span>💕 Yes, I will!</span></button>
+    <button class="btn-maybe" onclick="sayMaybe()">Give me a moment...</button>
+  </div>
+</section>
+
+<!-- YES RESPONSE -->
+<div id="yes-response">
+  <div class="hearts-burst">💕 🌸 💕</div>
+  <div class="yes-title">She said Yes! 🎉</div>
+  <p class="yes-sub">You have made me the happiest person in the world, Ashwini.<br>This is just the beginning. ✨</p>
+</div>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const trail = document.getElementById('cursor-trail');
+  let tx = 0, ty = 0;
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    setTimeout(() => {
+      trail.style.left = e.clientX + 'px';
+      trail.style.top = e.clientY + 'px';
+    }, 80);
+  });
+
+  // Floating petals
+  const petalContainer = document.getElementById('petals');
+  const petalEmojis = ['🌸', '🌺', '💮', '🪷'];
+  function createPetal() {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
+    const dur = 6 + Math.random() * 8;
+    p.style.animationDuration = dur + 's';
+    p.style.animationDelay = Math.random() * 5 + 's';
+    petalContainer.appendChild(p);
+    setTimeout(() => p.remove(), (dur + 5) * 1000);
+  }
+  setInterval(createPetal, 600);
+  for(let i = 0; i < 8; i++) createPetal();
+
+  // Scroll reveal for reason cards
+  const cards = document.querySelectorAll('.reason-card');
+  const letterBody = document.getElementById('letter-body');
+  const proposalEls = ['pe','pq','pn','pb'].map(id => document.getElementById(id));
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), 0);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  cards.forEach((card, i) => {
+    card.style.transitionDelay = (i * 0.12) + 's';
+    observer.observe(card);
+  });
+
+  const letterObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.2 });
+  letterObserver.observe(letterBody);
+
+  // Proposal section animate
+  const proposalObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        proposalEls.forEach(el => el.classList.add('animate'));
+      }
+    });
+  }, { threshold: 0.3 });
+  proposalObserver.observe(document.getElementById('proposal'));
+
+  // Buttons
+  function sayYes() {
+    const overlay = document.getElementById('yes-response');
+    overlay.classList.add('show');
+    // Burst petals
+    for(let i = 0; i < 20; i++) createPetal();
+  }
+
+  let maybeCount = 0;
+  const maybePhrases = [
+    "Take your time... I'll wait 💕",
+    "I'm still here, whenever you're ready... 🌸",
+    "No rush at all, Ashwini 🥺",
+    "I have all the time in the world for you ✨",
+    "The answer is still yes for me 💕"
+  ];
+  function sayMaybe() {
+    const btn = document.querySelector('.btn-maybe');
+    btn.textContent = maybePhrases[maybeCount % maybePhrases.length];
+    maybeCount++;
+  }
+
+  // Close overlay on click
+  document.getElementById('yes-response').addEventListener('click', function() {
+    this.classList.remove('show');
+  });
+</script>
+</body>
+</html>
